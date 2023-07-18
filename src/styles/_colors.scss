@@ -3,7 +3,7 @@ $colors-service: (
     'warning': #FFA12A,
     'success': #75BE5B,
     'info': #1F8CEB,
-    'link': #6035DA
+    'help': #6035DA
 );
 
 $palette-black: create-palette(#000, .2);
@@ -24,29 +24,15 @@ $themes: (
         'text-bold': nth($palette-white, 1),
         'text-normal': nth($palette-white, 1),
         'icon': nth($palette-white, 1)
-    ),
-    'mono': (
-        'background': #181A20,
-        'title': nth($palette-white, 1),
-        'text-bold': nth($palette-white, 1),
-        'text-normal': nth($palette-white, 1),
-        'icon': #181A20
     )
 );
 
 $color-schemes: (
-    'blue': (208deg, 83%, 26%), // Цвет по-умолчанию должен быть первым
-    'indigo': (230deg, 100%, 35%),
-    'purple': (256deg, 69%, 27%),
-    // 'cyan': (174deg, 79%, 23%),
+    'blue': (208deg, 83%, 26%),
     'green': (104deg, 43%, 29%),
-    // 'yellow': (46deg, 100%, 46%),
     'orange': (23deg, 93%, 34%),
-    'fuchsia': (307deg, 66%, 43%),
-    'pink': (327deg, 73%, 37%),
-    'red': (353deg, 74%, 38%)
+    'red': (353deg, 74%, 38%) 
 );
-
 
 // Добавляем в :root переменные со служебными цветами
 @each $key, $value in $colors-service {
@@ -62,21 +48,11 @@ $color-schemes: (
         }
     }       
 }
-
 // Генерим переменные css в классы тем
 @each $selector, $collection in $themes {
     .theme-#{$selector} {
         @each $key, $value in $collection {
-            @if ($selector == 'mono' and ($key == 'background' or $key == 'icon')) {
-                @each $color, $list in $color-schemes {
-                    &.color-#{$color} {
-                        $clr-primary: set-nth($list, 3, nth($list, -1) + 13%);
-                        --clr-#{$key}: #{mix(hsl($clr-primary...), $value, 20%)};
-                    }
-                }
-            } @else {
-                --clr-#{$key}: #{$value};
-            }
+            --clr-#{$key}: #{$value};
         }
     }    
 }
@@ -86,14 +62,7 @@ $color-schemes: (
         @for $i from 0 to 5 {
             --clr-primary-#{$i + 1}: hsl(#{set-nth($list, 3, nth($list, -1) + 13% * $i)});
         }
-        --clr-primary-alpha: hsla(#{set-nth($list, 3, nth($list, -1) + 26%)}, .26);        
-
-        @if ($selector == 'purple' or $selector == 'indigo' or $selector == 'blue') {
-            &.theme-dark,
-            &.theme-mono {
-                --clr-icon: #{nth($palette-white, 1)};
-            }            
-        }        
+        --clr-primary-alpha: hsla(#{set-nth($list, 3, nth($list, -1) + 26%)}, .26);
     }
 }
 
