@@ -1,0 +1,147 @@
+@import "~styles/index";
+
+%common-styles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+
+    border-radius: .5rem;
+    padding: 0 1rem;
+
+    .wrapper-text {
+        @include text-ellipsis(1, break-all);
+    }
+}
+
+.oms-button_large {
+    $size: 3rem;
+
+    @extend %common-styles;
+    height: $size;
+    
+    font-size: 1rem;
+
+    .wrapper-icon {
+        font-size: calc(1rem + 6px);
+    }
+
+    &.no-text {
+        justify-content: center;
+        width: $size;   
+        
+        padding: 0;
+    }
+}
+.oms-button_medium {
+    $size: 2.5rem;
+
+    @extend %common-styles;
+    height: $size;
+    
+    font-size: 1rem;
+
+    .wrapper-icon {
+        font-size: calc(1rem + 4px);
+    }
+
+    &.no-text {
+        justify-content: center;
+        width: $size;
+
+        padding: 0;
+    }
+}
+.oms-button_small {
+    $size: 2rem;
+
+    @extend %common-styles;
+    height: $size;
+    
+    font-size: calc(1rem - 2px);
+    padding: 0 calc(1rem - 4px);
+
+    .wrapper-icon {
+        font-size: calc(1rem + 2px);
+    }
+
+    &.no-text {
+        justify-content: center;
+        width: $size;
+
+        padding: 0;
+    }
+}
+
+.oms-button_round {
+    border-radius: 100px;
+}
+
+// CONTAINED
+.oms-button_contained {
+    color: $clr-theme-icon;
+    font-weight: 700;
+
+    background-color: $clr-primary-3;
+}
+
+.oms-button_contained .wrapper-text::selection {
+    color: $clr-primary-5;
+}
+
+.oms-button_contained:not([disabled]):hover {
+    @include hover {
+        color: $clr-primary-3;
+        background-color: $clr-primary-5;
+        transition: .12s;
+    }
+}
+
+.oms-button_contained:disabled {
+    color: $clr-gray-1;
+    
+    background-color: $clr-gray-5;
+}
+
+// OUTLINED
+.oms-button_outlined {
+    color: $clr-theme-text-normal;
+    font-weight: 700;
+
+    background-color: $clr-theme-background;
+    border: 1px solid $clr-gray-5;
+}
+
+.oms-button_outlined:not([disabled]):hover {
+    @include hover {
+        color: $clr-primary-3;
+        border-color: $clr-primary-alpha;
+        transition: .12s;
+    }
+}
+
+.oms-button_outlined:disabled {    
+    color: $clr-gray-1;
+}
+
+// OPACITY
+.oms-button_ghost {
+    color: $clr-gray-1;
+    font-weight: 400;
+
+    background-color: $clr-theme-background;
+}
+
+.oms-button_ghost:not([disabled]):hover {
+    @include hover {
+        color: $clr-primary-3;
+        background-color: $clr-primary-alpha;
+
+        transition: .12s;
+    }
+}
+
+.oms-button_ghost:disabled {    
+    color: $clr-gray-1;
+    background-color: $clr-gray-5;
+}

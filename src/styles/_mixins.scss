@@ -1,0 +1,40 @@
+@mixin text-ellipsis($lines, $word-break) {
+    display: -webkit-box;
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+    word-break: $word-break;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $lines;
+}
+
+@mixin hover {
+    @media (hover: hover) and (pointer: fine) {
+        @content;
+    }
+}
+
+@mixin screen-size-xl {
+    @media (max-width: 1280px) {
+        @content;
+    }
+}
+
+@mixin screen-size-lg {
+    @media (max-width: 992px) {
+        @content;
+    }
+}
+
+@mixin screen-size-md {
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin screen-size-sm {
+    @media (max-width: 576px) {
+        @content;
+    }
+}

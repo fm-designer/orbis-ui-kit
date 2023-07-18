@@ -1,0 +1,14 @@
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+@function create-palette($color, $step) {
+    $list: ();
+    @for $i from 0 to 5 {
+        $list: append($list, rgba($color, 1 - $i * $step));
+    }
+    @return $list;
+}
