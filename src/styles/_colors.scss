@@ -35,18 +35,18 @@ $color-schemes: (
 );
 
 // Добавляем в :root переменные со служебными цветами
-@each $key, $value in $colors-service {
-    :root {
+:root {
+    @each $key, $value in $colors-service {
         --clr-#{$key}: #{$value};
     }
 }
 // Добавляем в :root переменные из белой, черной и серой палитр
-@each $color-name, $list in ('white' $palette-white, 'black' $palette-black, 'gray' $palette-gray) {
-    @for $i from 1 through 5 {
-        :root {
+:root {
+    @each $color-name, $list in ('white' $palette-white, 'black' $palette-black, 'gray' $palette-gray) {
+        @for $i from 1 through 5 {
             --clr-#{$color-name}-#{$i}: #{nth($list, $i)};
-        }
-    }       
+        }       
+    }
 }
 // Генерим переменные css в классы тем
 @each $selector, $collection in $themes {

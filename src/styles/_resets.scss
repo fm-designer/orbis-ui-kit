@@ -1,3 +1,100 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
 html, body {
-  font-size: 14px;
+  height: 100%;
+  min-height: 100%;
+  
+  width: 100%;
+  min-width: 100%;
+
+  padding: 0;
+  margin: 0;
+
+  overflow: hidden;
+
+  font-size: 14px;  
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6, p, button, table, th, tr, td, input, textarea, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+th, tr, td {
+  word-break: break-word;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  pointer-events: auto;
+
+  font-size: 1rem;
+
+  outline: none;
+  border: none;
+  background-color: transparent;
+
+  &:focus,
+  &:hover,
+  &:active {
+      outline: none;
+  }
+
+  &:hover {
+      cursor: pointer;
+  }
+
+  &[disabled] {
+      cursor: not-allowed;
+  }
+}
+
+input,
+textarea {
+  font-size: 1rem;
+  font-weight: 400;
+
+  width: 100%;
+
+  border: none;
+  outline: none;
+  background-color: transparent;
+
+  &:focus,
+  &:hover,
+  &:active {
+      outline: none;
+  }
+
+  &:invalid,
+  &:-moz-submit-invalid,
+  &:-moz-ui-invalid {
+      box-shadow: none;
+  }
+
+  &[disabled] {
+      cursor: not-allowed;
+  }
+}
+
+::selection {
+  color: $clr-primary-3;
+  background-color: $clr-primary-alpha;
+}
+
+a {
+  color: $clr-link;
+  &:hover {
+      color: $clr-link;
+  }
+  &:visited {
+    color: $clr-link_visited;
+  }
 }
