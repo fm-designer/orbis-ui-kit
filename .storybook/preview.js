@@ -14,3 +14,26 @@ const preview = {
 };
 
 export default preview;
+
+export const globalTypes = {
+  dmt_isDark: {
+    name: 'VTheme',
+    description: 'Set class theme',
+  },
+  // color: {
+  //   name: 'Color',
+  //   description: 'Global theme for components',
+  //   defaultValue: 'light',
+  //   toolbar: {
+  //     // The icon for the toolbar item
+  //     icon: 'circlehollow',
+  //     // Array of options
+  //     items: [
+  //       { value: 'blue', icon: 'circlehollow', title: 'blue' },
+  //       { value: 'green', icon: 'circle', title: 'green' },
+  //     ],
+  //     // Property that specifies if the name of the item will be displayed
+  //     showName: true,
+  //   },
+  // },
+}
