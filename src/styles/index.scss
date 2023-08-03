@@ -6,3 +6,7 @@
 @import "resets";
 @import "media";
 @import "template";
+
+.sb-show-main {
+    background: $clr-theme-background !important;
+}

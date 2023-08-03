@@ -10,6 +10,7 @@ const preview = {
         date: /Date$/,
       },
     },
+    backgrounds: { disable: true },
   },
 };
 
