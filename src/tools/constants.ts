@@ -1,8 +1,8 @@
-export const ADDON_ID = "storybook-addon-dark-mode-toggle";
+export const ADDON_ID = "storybook-addon-context-theme";
 export const TOOL_ID = `${ADDON_ID}/tool`;
 export const PANEL_ID = `${ADDON_ID}/panel`;
 export const TAB_ID = `${ADDON_ID}/tab`;
-export const PARAM_KEY = `data-theme-toggle`;
+export const PARAM_KEY = `context-theme`;
 
 export const EVENTS = {
   RESULT: `${ADDON_ID}/result`,

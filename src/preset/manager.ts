@@ -1,6 +1,6 @@
 import { addons, types } from "@storybook/addons";
 
-import { Tool } from "../tools/Tool";
+import { ToolContextTheme } from "../tools";
 import { ADDON_ID, TOOL_ID } from "../tools/constants";
 
 
@@ -9,8 +9,8 @@ addons.register(ADDON_ID, () => {
   // Register the tool
   addons.add(TOOL_ID, {
     type: types.TOOL,
-    title: "Dark Mode Toggle",
+    title: "context_theme",
     match: ({ viewMode }) => !!(viewMode && viewMode.match(/^(story|docs)$/)),
-    render: Tool,
+    render: ToolContextTheme,
   });
 });
