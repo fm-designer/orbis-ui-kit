@@ -1,21 +1,12 @@
 module.exports = {
+    root: true,
     extends: [
-        "prettier"
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
     ],
-    env: {
-        browser: true,
-        node: true,
-        jasmine: true,
-        jest: true,
-        es6: true,
-    },
-    plugins: ["react", "@typescript-eslint", "react-hooks", "storybook"],
     parser: "@typescript-eslint/parser",
-    parserOptions: {
-        ecmaVersion: 7,
-        sourceType: "module",
-        project: "./tsconfig.json"
-    },
+    parserOptions: { "project": ["./tsconfig.json"] },
+    plugins: ["react", "@typescript-eslint", "react-hooks", "storybook"],
     rules: {
         "indent": "off",
         "radix": "off",
@@ -36,7 +27,6 @@ module.exports = {
         "no-bitwise": "off",
         "array-bracket-spacing": ["error", "always"],
         "class-methods-use-this": "off",
-        // "linebreak-style": ["error", "windows"],
         "max-len": [
             "error",
             {
@@ -110,5 +100,6 @@ module.exports = {
         "jsx-a11y/no-static-element-interactions": "off",
         "jsx-a11y/click-events-have-key-events": "off",
         "jsx-a11y/mouse-events-have-key-events": "off"
-    }
+    },
+    ignorePatterns: ["src/**/*.test.ts", "src/frontend/generated/*"]
 }

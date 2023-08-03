@@ -7,12 +7,12 @@ type TVariantTheme = "light" | "dark";
 type TVariantColor = "blue" | "green" | "orange" | "red";
 
 interface IDefaultConfig {
-  default: [ TVariantTheme, TVariantColor ]
+  default: [TVariantTheme, TVariantColor]
 }
 
 export const ToolContextTheme = () => {
   const defaultConfig: IDefaultConfig = {
-    default: [ "light", "blue" ]
+    default: ["light", "blue"]
   }
 
   const userConfig = useParameter<typeof defaultConfig>(
@@ -91,7 +91,7 @@ export const ToolContextTheme = () => {
         }}
       >
         <IconButton key="change-color" title="Change primary color">
-          <Icons icon="circle" style={{ color: context_theme[1] }}/>
+          <Icons icon="circle" style={{ color: context_theme[1] }} />
         </IconButton>
       </WithTooltip>
     </>
