@@ -1,11 +1,16 @@
 import React from "react";
 import { StoryFn } from "@storybook/react";
-import { Button, IButtonProps } from "../components";
+import { Button, IButtonProps, Icons } from "../components";
 
 
 export default {
   title: "Components/Button",
   component: Button,
+  argTypes: {
+    icon: { control: 'boolean', arg: <Icons.ArrowBottom /> },
+    size: { control: 'select' },
+    variant: { control: 'select' }
+  }
 };
 
 const Template: StoryFn<IButtonProps> = (args) => <Button {...args} />;
@@ -13,15 +18,36 @@ const Template: StoryFn<IButtonProps> = (args) => <Button {...args} />;
 export const Base = Template.bind({});
 Base.args = {
   children: "button",
-  icon: false
+  round: false,
+  size: "large",
+  variant: "contained",
+  disabled: false,
+  icon: <Icons.ArrowBottom />
+  // icon: { disable: true }
 };
+
+// const meta: Meta<typeof YourComponent> = {
+//   component: YourComponent,
+//   argTypes: {
+//     // foo is the property we want to remove from the UI
+//     foo: {
+//       table: {
+//         disable: true,
+//       },
+//     },
+//   },
+// };
+
 
 export const All = () => {
   return (
     <div className="flex gap-12">
-      <Button variant="contained">
+      some text
+      {/* <Icon /> */}
+      <Button variant="contained" icon={<Icons.Zoom />}>
         button
       </Button>
+      <Icons.ArrowBottom />
     </div>
   );
 };
