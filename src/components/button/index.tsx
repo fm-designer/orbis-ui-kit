@@ -15,7 +15,7 @@ export const Button = ({
   className,
   size = "large",
   variant = "contained",
-  round = false,
+  round,
   icon,
   children,
   ...props
@@ -28,7 +28,7 @@ export const Button = ({
         size && "oms-button_" + size,
         variant && "oms-button_" + variant,
         round && "oms-button_round",
-        !children && "no-text",
+        !children && children !== 0 && "no-text",
         className
       )}
       {...props}

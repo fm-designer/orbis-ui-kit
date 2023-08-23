@@ -1,9 +1,9 @@
 $colors-service: (
-    'error': #DB4C3F,
-    'warning': #FFA12A,
-    'success': #75BE5B,
-    'info': #1F8CEB,
-    'help': #6035DA
+    "danger": #DB4C3F,
+    "warning": #FFA12A,
+    "success": #75BE5B,
+    "info": #1F8CEB,
+    "help": #9757D7
 );
 
 $palette-black: create-palette(#000, .2);
@@ -11,27 +11,27 @@ $palette-white: create-palette(#fff, .2);
 $palette-gray: create-palette(#bdbdbd, .2);
 
 $themes: (
-    'light': (
-        'background': nth($palette-white, 1),
-        'title': nth($palette-black, 2),
-        'text-bold': nth($palette-black, 2),
-        'text-normal': nth($palette-black, 3),
-        'icon': nth($palette-white, 1)
+    "light": (
+        "background": nth($palette-white, 1),
+        "title": nth($palette-black, 2),
+        "text-bold": nth($palette-black, 2),
+        "text-normal": nth($palette-black, 3),
+        "icon": nth($palette-white, 1)
     ),
-    'dark': (
-        'background': #181A20,
-        'title': nth($palette-white, 1),
-        'text-bold': nth($palette-white, 1),
-        'text-normal': nth($palette-white, 1),
-        'icon': nth($palette-white, 1)
+    "dark": (
+        "background": #181A20,
+        "title": nth($palette-white, 1),
+        "text-bold": nth($palette-white, 1),
+        "text-normal": nth($palette-white, 1),
+        "icon": nth($palette-white, 1)
     )
 );
 
 $color-schemes: (
-    'blue': (208deg, 83%, 26%),
-    'green': (104deg, 43%, 29%),
-    'orange': (23deg, 93%, 34%),
-    'red': (353deg, 74%, 38%) 
+    "blue": (208deg, 83%, 26%),
+    "green": (104deg, 43%, 29%),
+    "orange": (23deg, 93%, 34%),
+    "red": (353deg, 74%, 38%) 
 );
 
 // Добавляем в :root переменные со служебными цветами
@@ -42,7 +42,7 @@ $color-schemes: (
 }
 // Добавляем в :root переменные из белой, черной и серой палитр
 :root {
-    @each $color-name, $list in ('white' $palette-white, 'black' $palette-black, 'gray' $palette-gray) {
+    @each $color-name, $list in ("white" $palette-white, "black" $palette-black, "gray" $palette-gray) {
         @for $i from 1 through 5 {
             --clr-#{$color-name}-#{$i}: #{nth($list, $i)};
         }       

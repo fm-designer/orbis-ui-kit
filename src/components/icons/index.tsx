@@ -36,6 +36,7 @@ import { ReactComponent as svg_file_zip } from "assets/icons/icon-file-zip.svg";
 import { ReactComponent as svg_filter } from "assets/icons/icon-filter.svg";
 import { ReactComponent as svg_folder } from "assets/icons/icon-folder.svg";
 import { ReactComponent as svg_geolocation } from "assets/icons/icon-geolocation.svg";
+import { ReactComponent as svg_help } from "assets/icons/icon-help.svg";
 import { ReactComponent as svg_indeterminate } from "assets/icons/icon-indeterminate.svg";
 import { ReactComponent as svg_info } from "assets/icons/icon-info.svg";
 import { ReactComponent as svg_layers } from "assets/icons/icon-layers.svg";
@@ -78,8 +79,8 @@ export const createSvgIcon = (
     svg_props: React.SVGProps<SVGSVGElement> = {}
 ) => (props: React.SVGProps<SVGSVGElement>) => (
     <span
-        className={clsx('wrapper-icon', props.className)}
-        style={{ display: 'flex', lineHeight: 0 }}
+        className={clsx("wrapper-icon", props.className)}
+        style={{ display: "flex", lineHeight: 0 }}
     >
         <Icon
             viewBox="0 0 20 20"
@@ -126,6 +127,7 @@ export namespace Icons {
     export const Filter = createSvgIcon(svg_filter);
     export const Folder = createSvgIcon(svg_folder);
     export const Geolocation = createSvgIcon(svg_geolocation);
+    export const Help = createSvgIcon(svg_help);
     export const Indeterminate = createSvgIcon(svg_indeterminate);
     export const Info = createSvgIcon(svg_info);
     export const Layers = createSvgIcon(svg_layers);
