@@ -7,22 +7,37 @@ export default {
   title: "Components/Button",
   component: Button,
   argTypes: {
-    icon: { control: 'boolean', arg: <Icons.ArrowBottom /> },
-    size: { control: 'select' },
-    variant: { control: 'select' }
-  }
+    icon: {
+      control: "boolean",
+      mapping: {
+        true: <Icons.ArrowBottom />,
+        false: null,
+      }
+    },
+    size: { control: "select" },
+    variant: { control: "select" },
+  },
+  args: {
+    icon: <Icons.ArrowBottom />,
+    children: "button",
+    round: false,
+    size: "large",
+    variant: "contained",
+    disabled: false,
+  },
 };
 
 const Template: StoryFn<IButtonProps> = (args) => <Button {...args} />;
+Template.bind({})
 
-export const Base = Template.bind({});
-Base.args = {
-  children: "button",
-  round: false,
-  size: "large",
-  variant: "contained",
-  disabled: false,
-  icon: <Icons.ArrowBottom />
+export const Common = Template.bind({});
+Common.args = {
+  // children: "button",
+  // round: false,
+  // size: "large",
+  // variant: "contained",
+  // disabled: false,
+  // icon: <Icons.ArrowBottom />
   // icon: { disable: true }
 };
 
@@ -39,28 +54,28 @@ Base.args = {
 // };
 
 
-export const All = () => {
-  return (
-    <div className="flex gap-12">
-      some text
-      {/* <Icon /> */}
-      <Button variant="contained" icon={<Icons.Zoom />}>
-        button
-      </Button>
-      <Icons.ArrowBottom />
-    </div>
-  );
-};
+// export const All = () => {
+//   return (
+//     <div className="flex gap-12">
+//       some text
+//       {/* <Icon /> */}
+//       <Button variant="contained" icon={<Icons.Zoom />}>
+//         button
+//       </Button>
+//       <Icons.ArrowBottom />
+//     </div>
+//   );
+// };
 
-// import { Button } from './Button';
+// import { Button } from "./Button";
 
 // // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 // export default {
-//   title: 'Example/Button',
+//   title: "Example/Button",
 //   component: Button,
-//   tags: ['autodocs'],
+//   tags: ["autodocs"],
 //   argTypes: {
-//     backgroundColor: { control: 'color' },
+//     backgroundColor: { control: "color" },
 //   },
 // };
 
@@ -68,26 +83,26 @@ export const All = () => {
 // export const Primary = {
 //   args: {
 //     primary: true,
-//     label: 'Button',
+//     label: "Button",
 //   },
 // };
 
 // export const Secondary = {
 //   args: {
-//     label: 'Button',
+//     label: "Button",
 //   },
 // };
 
 // export const Large = {
 //   args: {
-//     size: 'large',
-//     label: 'Button',
+//     size: "large",
+//     label: "Button",
 //   },
 // };
 
 // export const Small = {
 //   args: {
-//     size: 'small',
-//     label: 'Button',
+//     size: "small",
+//     label: "Button",
 //   },
 // };
