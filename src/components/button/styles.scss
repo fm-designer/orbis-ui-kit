@@ -107,7 +107,7 @@
     @include hover {
         color: $clr-primary-3;
         background-color: $clr-primary-5;
-        transition: .12s;
+        transition: .18s;
     }
 }
 
@@ -124,7 +124,7 @@
     @include hover {
         color: $clr-primary-3;
         border-color: $clr-primary-alpha;
-        transition: .12s;
+        transition: .18s;
     }
 }
 
@@ -141,6 +141,6 @@
         color: $clr-primary-3;
         background-color: $clr-primary-alpha;
 
-        transition: .12s;
+        transition: .18s;
     }
 }

@@ -9,8 +9,8 @@ export interface ITextProps extends TTextElement {
     bold?: boolean;
     small?: boolean;
     disabled?: boolean;
-    iconPrefix: JSX.Element;
-    iconSuffix: JSX.Element;
+    iconPrefix?: JSX.Element;
+    iconSuffix?: JSX.Element;
 }
 
 export const Text: React.FC<ITextProps> = forwardRef<HTMLParagraphElement, ITextProps>(

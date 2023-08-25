@@ -1,0 +1,92 @@
+@import "~styles/index";
+
+%common-styles {
+  $size: calc(1rem + 2px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: $size;
+  height: $size;
+
+  border: 1px solid transparent;
+  border-radius: 100px;
+
+  input {
+    display: none;
+  }
+
+  &:not(.oms-radio_disabled):hover {
+    @include hover {
+      cursor: pointer;
+      box-shadow: 0 0 0 .5rem $clr-primary-alpha;
+      transition: .18s;
+    }
+  }
+}
+
+%hover {
+  @include hover {
+    .oms-radio:not(.oms-radio_disabled) {
+      background-color: $clr-primary-3;
+      border-color: $clr-primary-3;
+      transition: .18s;
+    }
+
+    .oms-radio_checked:not(.oms-radio_disabled) {
+      background-color: $clr-theme-icon;
+      border-color: $clr-primary-3;
+      transition: .18s;
+    }
+
+    .oms-radio_label {
+      cursor: pointer;
+      color: $clr-primary-3;
+      transition: .18s;
+    }
+  }
+}
+
+.wrapper-radio_center {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.wrapper-radio_center:hover {
+  @extend %hover;
+}
+
+.wrapper-radio_top {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.wrapper-radio_top:hover {
+  @extend %hover;
+}
+
+.oms-radio {
+  @extend %common-styles;
+
+  border-color: $clr-gray-1;
+  background-color: $clr-theme-icon;
+}
+
+.oms-radio_checked {
+  @extend %common-styles;
+
+  background-color: $clr-theme-icon;
+  border-width: 5px;
+  border-color: $clr-primary-3;
+}
+
+.oms-radio_disabled {
+  cursor: not-allowed;
+
+  background-color: $clr-gray-5;
+  border-color: $clr-gray-3;
+}
