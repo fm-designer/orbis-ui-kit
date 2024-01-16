@@ -1,67 +1,70 @@
 import React from "react";
 import { StoryFn } from "@storybook/react";
-import { Button, IButtonProps } from "../components";
+import { Button, IButtonProps, Icons } from "../components";
 
 
 export default {
   title: "Components/Button",
   component: Button,
+  tags: ['autodocs'],
+  parameters: {
+    description: 'Overwritten description',
+  },
+  argTypes: {
+    children: {
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: null }
+      },
+    },
+    icon: {
+      control: "boolean",
+      table: {
+        type: { summary: 'JSX.Element' },
+        defaultValue: { summary: null }
+      },
+      mapping: {
+        true: <Icons.ArrowBottom />,
+        false: null,
+      }
+    },
+    variant: { control: "select" },
+    size: { control: "select" },
+    round: {
+      control: "boolean",
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: "false" }
+      },
+    },
+    disabled: {
+      control: "boolean",
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: "false" }
+      },
+    }
+  },
+  args: {
+    children: "button",
+    icon: <Icons.ArrowBottom />,
+    variant: "contained",
+    size: "large",
+    round: false,
+    disabled: false
+  },
 };
 
 const Template: StoryFn<IButtonProps> = (args) => <Button {...args} />;
+// export const API = Template.bind({});
+export const withChildren = Template.bind({});
+export const noChildren = Template.bind({});
 
-export const Base = Template.bind({});
-Base.args = {
-  children: "button",
-  icon: false
-};
+withChildren.args = {
+  children: "some text"
+}
 
-export const All = () => {
-  return (
-    <div className="flex gap-12">
-      <Button variant="contained">
-        button
-      </Button>
-    </div>
-  );
-};
+noChildren.args = {
+  children: null
+}
 
-// import { Button } from './Button';
-
-// // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
-// export default {
-//   title: 'Example/Button',
-//   component: Button,
-//   tags: ['autodocs'],
-//   argTypes: {
-//     backgroundColor: { control: 'color' },
-//   },
-// };
-
-// // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-// export const Primary = {
-//   args: {
-//     primary: true,
-//     label: 'Button',
-//   },
-// };
-
-// export const Secondary = {
-//   args: {
-//     label: 'Button',
-//   },
-// };
-
-// export const Large = {
-//   args: {
-//     size: 'large',
-//     label: 'Button',
-//   },
-// };
-
-// export const Small = {
-//   args: {
-//     size: 'small',
-//     label: 'Button',
-//   },
-// };

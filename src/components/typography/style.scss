@@ -1,0 +1,175 @@
+@import "~styles/index";
+
+// TITLE
+.oms-typography_title-1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $clr-theme-title;
+
+    margin: auto 0;
+}
+
+.oms-typography_title-2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $clr-theme-title;
+
+    margin: auto 0;
+}
+
+.oms-typography_title-3 {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $clr-theme-title;
+
+    margin: auto 0;
+}
+
+.oms-typography_title-4 {
+    font-size: calc(1rem - 2px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: calc((1rem - 10px) * 0.1);
+    color: $clr-gray-1;
+
+    margin: auto 0;
+}
+
+// TEXT
+.oms-typography_text-bold {
+    font-size: 1rem;
+    font-weight: 700;
+    color: $clr-theme-text-bold;
+
+    margin: auto 0;
+}
+
+.oms-typography_text {
+    font-size: 1rem;
+    font-weight: 400;
+    color: $clr-theme-text-normal;
+
+    margin: auto 0;
+}
+
+// SERVICE
+.oms-typography_service-info {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    font-size: 1rem;
+    font-weight: 400;
+    color: $clr-info;
+
+    .wrapper-icon {
+        font-size: calc(1rem + 2px);
+    }
+}
+
+.oms-typography_service-error {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    font-size: 1rem;
+    font-weight: 400;
+    color: $clr-error;
+
+    .wrapper-icon {
+        font-size: calc(1rem + 2px);
+    }
+}
+
+.oms-typography_service-warning {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    font-size: 1rem;
+    font-weight: 400;
+    color: $clr-warning;
+
+    .wrapper-icon {
+        font-size: calc(1rem + 2px);
+    }
+}
+
+.oms-typography_service-success {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    font-size: 1rem;
+    font-weight: 400;
+    color: $clr-success;
+
+    .wrapper-icon {
+        font-size: calc(1rem + 2px);
+    }
+}
+
+.oms-typography_service-help {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    font-size: 1rem;
+    font-weight: 400;
+    color: $clr-help;
+
+    .wrapper-icon {
+        font-size: calc(1rem + 2px);
+    }
+}
+
+// ANCHOR
+.oms-typography_anchor {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    font-size: 1rem;
+    font-weight: 400;
+    text-decoration: none;
+    color: $clr-info;
+
+    opacity: .8;
+
+    .wrapper-icon {
+        font-size: calc(1rem + 2px);
+    }
+}
+
+.oms-typography_anchor:visited {
+    color: $clr-help;
+    opacity: .6;
+}
+
+.oms-typography_anchor:hover {
+    @include hover {
+        cursor: pointer;
+        text-decoration: underline;
+        opacity: 1;
+    }
+}
+
+.oms-typography_anchor:focus {
+    @extend %focus;
+}
+
+// DISABLED
+.oms-typography_disabled {
+    color: $clr-gray-1;
+}
+
+// SMALL
+.oms-typography_small {
+    font-size: calc(1rem - 2px);
+    letter-spacing: calc((1rem - 10px) * 0.1);
+
+    .wrapper-icon {
+        font-size: calc(1em + 2px);
+    }
+}
