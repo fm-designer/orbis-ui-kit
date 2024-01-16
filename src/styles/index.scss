@@ -7,6 +7,12 @@
 @import "media";
 @import "template";
 
-.sb-show-main {
+.sb-show-main,
+.css-hd7ysc {
     background: $clr-theme-background !important;
+}
+
+.css-zgt7u1 {
+    height: 100vh;
+    overflow-y: scroll;
 }

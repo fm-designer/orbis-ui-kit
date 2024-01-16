@@ -12,7 +12,8 @@ import {
 
 export default {
     title: "Components/Typography",
-    component: Typography
+    component: Typography,
+    tags: ['autodocs'],
 };
 
 const TypographyTitle: StoryFn<ITitleProps> = (args) => <Typography.Title {...args} />;
@@ -89,7 +90,7 @@ Anchor.args = {
 Service.argTypes = {
     variant: {
         control: "select",
-        options: ["info", "warning", "danger", "success", "help"]
+        options: ["info", "warning", "error", "success", "help"]
     },
     small: { control: "boolean" },
     showIcon: { control: "boolean" }

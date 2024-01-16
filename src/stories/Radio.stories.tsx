@@ -12,38 +12,3 @@ const Template: StoryFn<IRadioProps> = (args) => <Radio {...args} />;
 
 export const NoLabel = Template.bind({});
 export const Label = Template.bind({});
-
-NoLabel.argTypes = {
-    alignment: {
-        table: {
-            disable: true
-        }
-    },
-    bold: {
-        if: { arg: "label", neq: false }
-    },
-    checked: { control: "boolean" },
-    // indeterminate: { control: "boolean" },
-    disabled: { control: "boolean" },
-    readOnly: {
-        table: {
-            disable: true
-        }
-    },
-    label: {
-        control: "boolean",
-        mapping: {
-            true: "label",
-            false: "",
-        }
-    },
-};
-
-NoLabel.args = {
-    checked: false,
-    // indeterminate: false,
-    disabled: false,
-    readOnly: true,
-    label: "label",
-    bold: false
-};

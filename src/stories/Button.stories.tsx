@@ -6,44 +6,65 @@ import { Button, IButtonProps, Icons } from "../components";
 export default {
   title: "Components/Button",
   component: Button,
+  tags: ['autodocs'],
+  parameters: {
+    description: 'Overwritten description',
+  },
   argTypes: {
+    children: {
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: null }
+      },
+    },
     icon: {
       control: "boolean",
+      table: {
+        type: { summary: 'JSX.Element' },
+        defaultValue: { summary: null }
+      },
       mapping: {
         true: <Icons.ArrowBottom />,
         false: null,
       }
     },
+    variant: { control: "select" },
     size: { control: "select" },
-    variant: {
+    round: {
+      control: "boolean",
       table: {
-        disable: true
-      }
+        type: { summary: 'boolean' },
+        defaultValue: { summary: "false" }
+      },
     },
+    disabled: {
+      control: "boolean",
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: "false" }
+      },
+    }
   },
   args: {
     children: "button",
-    size: "large",
     icon: <Icons.ArrowBottom />,
+    variant: "contained",
+    size: "large",
     round: false,
     disabled: false
   },
 };
 
 const Template: StoryFn<IButtonProps> = (args) => <Button {...args} />;
+// export const API = Template.bind({});
+export const withChildren = Template.bind({});
+export const noChildren = Template.bind({});
 
-export const Contained = Template.bind({});
-export const Outlined = Template.bind({});
-export const Ghost = Template.bind({});
+withChildren.args = {
+  children: "some text"
+}
 
-Contained.args = {
-  variant: "contained",
-};
+noChildren.args = {
+  children: null
+}
 
-Outlined.args = {
-  variant: "outlined",
-};
-
-Ghost.args = {
-  variant: "ghost",
-};

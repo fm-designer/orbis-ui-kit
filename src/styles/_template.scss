@@ -3,7 +3,7 @@
 }
 
 %error {
-    box-shadow: 0 0 0 2px $clr-danger;
+    box-shadow: 0 0 0 calc(1rem - 10px) $clr-error;
     opacity: .26;
 }
 

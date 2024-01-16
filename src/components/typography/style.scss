@@ -68,14 +68,14 @@
     }
 }
 
-.oms-typography_service-danger {
+.oms-typography_service-error {
     display: flex;
     align-items: center;
     gap: .5rem;
 
     font-size: 1rem;
     font-weight: 400;
-    color: $clr-danger;
+    color: $clr-error;
 
     .wrapper-icon {
         font-size: calc(1rem + 2px);

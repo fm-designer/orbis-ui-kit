@@ -7,7 +7,7 @@ import "./style.scss";
 type TServiceElement = React.DetailedHTMLProps<React.HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>;
 
 export interface IServiceProps extends TServiceElement {
-    variant?: "info" | "warning" | "danger" | "success" | "help";
+    variant?: "info" | "warning" | "error" | "success" | "help";
     small?: boolean;
     showIcon?: boolean;
 }
@@ -34,7 +34,7 @@ export const Service: React.FC<IServiceProps> = (
             >
                 {showIcon && variant === "info" && <Icons.Info />}
                 {showIcon && variant === "warning" && <Icons.Warning />}
-                {showIcon && variant === "danger" && <Icons.Error />}
+                {showIcon && variant === "error" && <Icons.Error />}
                 {showIcon && variant === "success" && <Icons.Success />}
                 {showIcon && variant === "help" && <Icons.Help />}
                 {children}
