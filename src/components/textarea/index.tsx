@@ -42,10 +42,8 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
                         }, resize && prefixCls + "-textarea_resize")}
                         ref={ref}
                         onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
-                            if (onChange) {
-                                let { value } = e.currentTarget;
-                                onChange(value, e);
-                            }
+                            let { value } = e.currentTarget;
+                            onChange(value, e);
                         }}
                         onFocus={(...args) => {
                             setFocus(true);
