@@ -10,6 +10,7 @@ export interface ITextareaProps
     description?: string;
     hasError?: boolean;
     errorMessage?: string;
+    resize?: boolean;
     prefixCls?: string;
 }
 
@@ -18,6 +19,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
         description,
         hasError,
         errorMessage,
+        resize,
         prefixCls = "oms",
         className,
         placeholder,
@@ -30,15 +32,14 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
         const [focus, setFocus] = React.useState<boolean>(false);
 
         return (
-            <div className={clsx(prefixCls + "-textarea_wrapper", className)}>
-                <div
-                    className={clsx({
-                        [`${prefixCls + "-textarea"}`]: !rest.disabled && !hasError,
-                        [`${prefixCls + "-textarea_disabled"}`]: rest.disabled,
-                        [`${prefixCls + "-textarea_error"}`]: hasError
-                    })}
-                >
+            <div className={clsx(prefixCls + "-textarea_container", className)}>
+                <div className={prefixCls + "-textarea_wrapper"}>
                     <textarea
+                        className={clsx({
+                            [`${prefixCls + "-textarea"}`]: !rest.disabled && !hasError,
+                            [`${prefixCls + "-textarea_disabled"}`]: rest.disabled,
+                            [`${prefixCls + "-textarea_error"}`]: hasError
+                        }, resize && prefixCls + "-textarea_resize")}
                         ref={ref}
                         onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
                             if (onChange) {
@@ -68,7 +69,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
                             >
                                 {placeholder}
                             </Typography.Text>
-                            {required && (
+                            {required && !rest.disabled && (
                                 <Typography.Service
                                     className={prefixCls + "-textarea_required"}
                                     variant="error"

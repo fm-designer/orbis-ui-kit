@@ -43,5 +43,7 @@ NoLabel.args = {
     hasError: true,
     placeholder: "some text",
     required: true,
-    value: "fijfifgjifgjfg"
+    value: "fijfifgjifgjfg",
+    disabled: false,
+    resize: false
 };
