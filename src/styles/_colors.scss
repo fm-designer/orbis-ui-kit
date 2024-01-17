@@ -1,8 +1,10 @@
-$colors-service: ("error": #DB4C3F,
+$colors-service: (
+    "error": #DB4C3F,
     "warning": #FFA12A,
     "success": #75BE5B,
     "info": #1F8CEB,
-    "help": #9757D7);
+    "help": #9757D7
+);
 
 $palette-black: create-palette(#000, .2);
 $palette-white: create-palette(#fff, .2);
@@ -53,20 +55,17 @@ $color-schemes: (
 }
 
 // Генерим переменные css в классы тем
-@each $selector,
-$collection in $themes {
+@each $selector, $collection in $themes {
     .theme-#{$selector} {
 
-        @each $key,
-        $value in $collection {
+        @each $key, $value in $collection {
             --clr-#{$key}: #{$value};
         }
     }
 }
 
 // Генерим переменные css в классы цветовой схемы
-@each $selector,
-$list in $color-schemes {
+@each $selector, $list in $color-schemes {
     .color-#{$selector} {
         @for $i from 0 to 5 {
             --clr-primary-#{$i + 1}: hsl(#{set-nth($list, 3, nth($list, -1) + 13% * $i)});

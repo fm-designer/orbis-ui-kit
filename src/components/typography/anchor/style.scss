@@ -1,0 +1,37 @@
+@import "~styles/index";
+
+.oms-typography_anchor {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    font-size: 1rem;
+    font-weight: 400;
+    text-decoration: none;
+    color: $clr-info;
+
+    opacity: .8;
+}
+
+.oms-typography_anchor:visited {
+    color: $clr-help;
+    opacity: .6;
+}
+
+.oms-typography_anchor:hover {
+    @include hover {
+        cursor: pointer;
+        text-decoration: underline;
+        opacity: 1;
+    }
+}
+
+.oms-typography_anchor:focus {
+    @extend %focus;
+}
+
+
+.oms-typography_anchor-small {
+    font-size: calc(1rem - 2px);
+    letter-spacing: calc((1rem - 10px) * 0.1);
+}

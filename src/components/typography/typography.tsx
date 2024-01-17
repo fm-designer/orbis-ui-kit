@@ -1,8 +1,8 @@
 import React from "react";
-import { Title, ITitleProps } from "./typography-title";
-import { Text, ITextProps } from "./typography-text";
-import { Anchor, IAnchorProps } from "./typography-anchor";
-import { Service, IServiceProps } from "./typography-service";
+import { Title, ITitleProps } from "./title";
+import { Text, ITextProps } from "./text";
+import { Anchor, IAnchorProps } from "./anchor";
+import { Service, IServiceProps } from "./service";
 
 export interface ITypography {
     Title: React.FC<ITitleProps>;

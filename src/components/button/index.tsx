@@ -3,12 +3,14 @@ import clsx from "clsx";
 import "./styles.scss";
 
 
-/* eslint-disable-next-line */
-export interface IButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
+export interface IButtonProps extends
+  React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement> {
   size?: "large" | "medium" | "small";
   variant?: "contained" | "outlined" | "ghost";
   round?: boolean;
   icon?: JSX.Element;
+  prefixCls?: string;
 }
 
 export const Button = ({
@@ -17,25 +19,30 @@ export const Button = ({
   variant = "contained",
   round,
   icon,
+  prefixCls = "oms",
   children,
-  ...props
+  ...rest
 }: IButtonProps) => {
 
   return (
     <button
       type="button"
       className={clsx(
-        size && "oms-button_" + size,
-        variant && "oms-button_" + variant,
-        round && "oms-button_round",
-        !children && children !== 0 && "no-text",
+        size && prefixCls + "-button_" + size,
+        variant && prefixCls + "-button_" + variant,
+        round && prefixCls + "-button_round",
+        !children && prefixCls + "-button_square",
         className
       )}
-      {...props}
+      {...rest}
     >
       {icon && icon}
       {children && (
-        <span className="wrapper-text">{children}</span>
+        <span
+          className={clsx(prefixCls + "-button_text")}
+        >
+          {children}
+        </span>
       )}
     </button>
   );

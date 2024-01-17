@@ -3,13 +3,13 @@
 %common-styles {
   $size: calc(1rem + 2px);
 
+  width: $size;
+  height: $size;
+
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-
-  width: $size;
-  height: $size;
 
   border: 1px solid transparent;
   border-radius: 100px;
@@ -49,23 +49,23 @@
   }
 }
 
-.wrapper-radio_center {
+.oms-radio_align-center {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.wrapper-radio_center:hover {
+.oms-radio_align-center:hover {
   @extend %hover;
 }
 
-.wrapper-radio_top {
+.oms-radio_align-top {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
 }
 
-.wrapper-radio_top:hover {
+.oms-radio_align-top:hover {
   @extend %hover;
 }
 

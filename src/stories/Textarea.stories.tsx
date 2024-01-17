@@ -41,4 +41,7 @@ NoLabel.argTypes = {
 
 NoLabel.args = {
     hasError: true,
+    placeholder: "some text",
+    required: true,
+    value: "fijfifgjifgjfg"
 };

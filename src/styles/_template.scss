@@ -3,8 +3,7 @@
 }
 
 %error {
-    box-shadow: 0 0 0 calc(1rem - 10px) $clr-error;
-    opacity: .26;
+    box-shadow: 0 0 0 calc(1rem - 10px) color-mix(in srgb, $clr-error, transparent 74%);
 }
 
 %noselect {

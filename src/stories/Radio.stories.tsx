@@ -12,3 +12,9 @@ const Template: StoryFn<IRadioProps> = (args) => <Radio {...args} />;
 
 export const NoLabel = Template.bind({});
 export const Label = Template.bind({});
+
+NoLabel.args = {
+    checked: false,
+    disabled: false,
+    label: "some text"
+}

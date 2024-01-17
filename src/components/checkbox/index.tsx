@@ -1,42 +1,46 @@
-import React, { HTMLProps } from 'react';
-import clsx from 'clsx';
+import React, { HTMLProps } from "react";
+import { Icons, Typography } from "..";
+import clsx from "clsx";
 
-import './style.scss';
-import { Icons, Typography } from '..';
+import "./style.scss";
 
 export interface ICheckboxProps extends HTMLProps<HTMLInputElement> {
-    indeterminate?: boolean,
-    alignment?: 'center' | 'top',
-    bold?: boolean
+    indeterminate?: boolean;
+    align?: "center" | "top";
+    bold?: boolean;
+    prefixCls?: string;
 }
 
 export const Checkbox: React.FC<ICheckboxProps> = (props): JSX.Element => {
     const {
-        className,
-        alignment = 'center',
-        bold,
         indeterminate,
+        align = "center",
+        bold,
+        prefixCls = "oms",
         label,
-        ...inputProps
+        className,
+        ...rest
     } = props;
 
+    console.log(label);
+
     return (
-        <label className={clsx(alignment && 'wrapper-checkbox_' + alignment, className)}>
+        <label className={clsx(prefixCls + "-checkbox_align-" + align, className)}>
             <label className={clsx({
-                'oms-checkbox': !inputProps.checked && !indeterminate,
-                'oms-checkbox_checked': inputProps.checked,
-                'oms-checkbox_indeterminate': indeterminate
-            }, inputProps.disabled && 'oms-checkbox_disabled')}
+                [`${prefixCls}-checkbox`]: !rest.checked && !indeterminate,
+                [`${prefixCls}-checkbox_checked`]: rest.checked,
+                [`${prefixCls}-checkbox_indeterminate`]: indeterminate,
+            }, rest.disabled && prefixCls + "-checkbox_disabled")}
             >
-                <input {...inputProps} type="checkbox" />
-                {inputProps.checked && <Icons.Check />}
+                <input {...rest} type="checkbox" />
+                {rest.checked && <Icons.Check />}
                 {indeterminate && <Icons.Indeterminate />}
             </label>
             {label && (
                 <Typography.Text
-                    className={clsx(!inputProps.disabled && 'oms-checkbox_label')}
+                    className={clsx(!rest.disabled && prefixCls + "-checkbox_label")}
                     bold={bold}
-                    disabled={inputProps.disabled}
+                    disabled={rest.disabled}
                 >
                     {label}
                 </Typography.Text>

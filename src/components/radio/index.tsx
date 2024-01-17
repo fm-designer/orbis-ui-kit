@@ -1,38 +1,39 @@
-import React, { HTMLProps } from 'react';
-import { Typography } from '..';
-import clsx from 'clsx';
+import React, { HTMLProps } from "react";
+import { Typography } from "..";
+import clsx from "clsx";
 
-import './style.scss';
+import "./style.scss";
 
 export interface IRadioProps extends HTMLProps<HTMLInputElement> {
-    className?: string,
-    alignment?: 'center' | 'top',
-    bold?: boolean
+    align?: "center" | "top";
+    bold?: boolean;
+    prefixCls?: string;
 }
 
 export const Radio: React.FC<IRadioProps> = (props): JSX.Element => {
     const {
-        className,
-        alignment = 'center',
+        align = "center",
         bold,
+        prefixCls = "oms",
         label,
-        ...inputProps
+        className,
+        ...rest
     } = props;
 
     return (
-        <label className={clsx(alignment && 'wrapper-radio_' + alignment, className)}>
+        <label className={clsx(prefixCls + "-radio_align-" + align, className)}>
             <label className={clsx({
-                'oms-radio': !inputProps.checked,
-                'oms-radio_checked': inputProps.checked
-            }, inputProps.disabled && 'oms-radio_disabled')}
+                [`${prefixCls}-radio`]: !rest.checked,
+                [`${prefixCls}-radio_checked`]: rest.checked
+            }, rest.disabled && prefixCls + "-radio_disabled")}
             >
-                <input {...inputProps} type="radio" />
+                <input {...rest} type="radio" />
             </label>
             {label && (
                 <Typography.Text
-                    className={clsx(!inputProps.disabled && 'oms-radio_label')}
+                    className={clsx(!rest.disabled && prefixCls + "-radio_label")}
                     bold={bold}
-                    disabled={inputProps.disabled}
+                    disabled={rest.disabled}
                 >
                     {label}
                 </Typography.Text>

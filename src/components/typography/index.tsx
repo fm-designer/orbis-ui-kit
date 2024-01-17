@@ -1,7 +1,5 @@
-import "./style.scss";
-
-export * from "./typography-title";
-export * from "./typography-text";
-export * from "./typography-service";
-export * from "./typography-anchor";
+export * from "./title";
+export * from "./text";
+export * from "./service";
+export * from "./anchor";
 export * from "./typography";

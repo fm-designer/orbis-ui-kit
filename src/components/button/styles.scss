@@ -12,10 +12,6 @@
 
     @extend %noselect;
 
-    .wrapper-text {
-        @include text-ellipsis(1, break-all);
-    }
-
     &[disabled] {
         color: $clr-gray-3;
 
@@ -26,6 +22,10 @@
     &:focus {
         @extend %focus;
     }
+}
+
+.oms-button_text {
+    @include text-ellipsis(1, break-all);
 }
 
 // SIZES
@@ -41,7 +41,7 @@
         font-size: calc(1rem + 6px);
     }
 
-    &.no-text {
+    &.oms-button_square {
         justify-content: center;
         width: $size;
 
@@ -61,7 +61,7 @@
         font-size: calc(1rem + 4px);
     }
 
-    &.no-text {
+    &.oms-button_square {
         justify-content: center;
         width: $size;
 
@@ -82,7 +82,7 @@
         font-size: calc(1rem + 2px);
     }
 
-    &.no-text {
+    &.oms-button_square {
         justify-content: center;
         width: $size;
 

@@ -10,5 +10,17 @@ export default {
 
 const Template: StoryFn<ICheckboxProps> = (args) => <Checkbox {...args} />;
 
-export const NoLabel = Template.bind({});
-export const Label = Template.bind({});
+export const Check = Template.bind({});
+export const Indeterminate = Template.bind({});
+
+Check.args = {
+    checked: true,
+    label: "some text",
+    disabled: false
+}
+
+Indeterminate.args = {
+    // indeterminate: true,
+    label: "some text",
+    disabled: false
+}

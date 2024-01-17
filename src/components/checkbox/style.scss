@@ -3,22 +3,18 @@
 %common-styles {
   $size: calc(1rem + 2px);
 
+  width: $size;
+  height: $size;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-
-  width: $size;
-  height: $size;
+  flex-shrink: 0;  
 
   border: 1px solid transparent;
   border-radius: 2px;
 
   color: $clr-theme-icon;
-
-  .wrapper-icon {
-    color: $clr-theme-icon;
-  }
 
   input {
     display: none;
@@ -52,23 +48,23 @@
   }
 }
 
-.wrapper-checkbox_center {
+.oms-checkbox_align-center {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.wrapper-checkbox_center:hover {
+.oms-checkbox_align-center:hover {
   @extend %hover;
 }
 
-.wrapper-checkbox_top {
+.oms-checkbox_align-top {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
 }
 
-.wrapper-checkbox_top:hover {
+.oms-checkbox_align-top:hover {
   @extend %hover;
 }
 

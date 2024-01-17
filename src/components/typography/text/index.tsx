@@ -9,8 +9,7 @@ export interface ITextProps extends TTextElement {
     bold?: boolean;
     small?: boolean;
     disabled?: boolean;
-    iconPrefix?: JSX.Element;
-    iconSuffix?: JSX.Element;
+    prefixCls?: string;
 }
 
 export const Text: React.FC<ITextProps> = forwardRef<HTMLParagraphElement, ITextProps>(
@@ -20,6 +19,7 @@ export const Text: React.FC<ITextProps> = forwardRef<HTMLParagraphElement, IText
             bold,
             small,
             disabled,
+            prefixCls = "oms",
             ...rest
         } = props;
 
@@ -27,9 +27,9 @@ export const Text: React.FC<ITextProps> = forwardRef<HTMLParagraphElement, IText
             <p
                 ref={ref}
                 className={clsx(
-                    bold ? "oms-typography_text-bold" : "oms-typography_text",
-                    small && "oms-typography_small",
-                    disabled && "oms-typography_disabled",
+                    bold ? prefixCls + "-typography_text-bold" : "oms-typography_text",
+                    small && prefixCls + "-typography_text-small",
+                    disabled && prefixCls + "-typography_text-disabled",
                     className
                 )}
                 {...rest}

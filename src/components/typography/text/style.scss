@@ -1,0 +1,26 @@
+@import "~styles/index";
+
+.oms-typography_text-bold {
+    font-size: 1rem;
+    font-weight: 700;
+    color: $clr-theme-text-bold;
+
+    margin: auto 0;
+}
+
+.oms-typography_text {
+    font-size: 1rem;
+    font-weight: 400;
+    color: $clr-theme-text-normal;
+
+    margin: auto 0;
+}
+
+.oms-typography_text-disabled {
+    color: $clr-gray-1;
+}
+
+.oms-typography_text-small {
+    font-size: calc(1rem - 2px);
+    letter-spacing: calc((1rem - 10px) * 0.1);
+}

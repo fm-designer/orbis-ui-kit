@@ -1,0 +1,36 @@
+@import "~styles/index";
+
+.oms-typography_title-1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $clr-theme-title;
+
+    margin: auto 0;
+}
+
+.oms-typography_title-2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $clr-theme-title;
+
+    margin: auto 0;
+}
+
+.oms-typography_title-3 {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $clr-theme-title;
+
+    margin: auto 0;
+}
+
+.oms-typography_title-4 {
+    font-size: calc(1rem - 2px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: calc((1rem - 10px) * 0.1);
+    color: $clr-gray-1;
+
+    margin: auto 0;
+}

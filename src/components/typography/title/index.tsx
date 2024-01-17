@@ -7,6 +7,7 @@ type TTileElement = React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElem
 
 export interface ITitleProps extends TTileElement {
     level?: "H1" | "H2" | "H3" | "H4";
+    prefixCls?: string;
 }
 
 export const Title: React.FC<ITitleProps> = forwardRef<HTMLHeadingElement, ITitleProps>(
@@ -14,6 +15,7 @@ export const Title: React.FC<ITitleProps> = forwardRef<HTMLHeadingElement, ITitl
         const {
             className,
             level,
+            prefixCls = "oms",
             ...rest
         } = props;
 
@@ -21,35 +23,35 @@ export const Title: React.FC<ITitleProps> = forwardRef<HTMLHeadingElement, ITitl
             case "H1": return (
                 <h1
                     ref={ref}
-                    className={clsx("oms-typography_title-1", className)}
+                    className={clsx(prefixCls + "-typography_title-1", className)}
                     {...rest}
                 />
             );
             case "H2": return (
                 <h2
                     ref={ref}
-                    className={clsx("oms-typography_title-2", className)}
+                    className={clsx(prefixCls + "-typography_title-2", className)}
                     {...rest}
                 />
             );
             case "H3": return (
                 <h3
                     ref={ref}
-                    className={clsx("oms-typography_title-3", className)}
+                    className={clsx(prefixCls + "-typography_title-3", className)}
                     {...rest}
                 />
             );
             case "H4": return (
                 <h4
                     ref={ref}
-                    className={clsx("oms-typography_title-4", className)}
+                    className={clsx(prefixCls + "-typography_title-4", className)}
                     {...rest}
                 />
             );
             default: return (
                 <h3
                     ref={ref}
-                    className={clsx("oms-typography_title-3", className)}
+                    className={clsx(prefixCls + "-typography_title-3", className)}
                     {...rest}
                 />
             );

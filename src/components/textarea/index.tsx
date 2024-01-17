@@ -1,56 +1,53 @@
-import * as React from 'react';
-import clsx from 'clsx';
-import { Typography } from '..';
+import * as React from "react";
+import { Typography } from "..";
+import clsx from "clsx";
 
-import './style.scss';
+import "./style.scss";
 
 export interface ITextareaProps
-    extends Omit<React.InputHTMLAttributes<HTMLTextAreaElement>, 'onChange' | 'className'> {
-    onChange: (value: string, original_event: React.ChangeEvent<HTMLTextAreaElement>) => any;
-    isFocus?: React.Dispatch<React.SetStateAction<boolean>>;
-    className?: string;
+    extends Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, "onChange"> {
+    onChange: (value: string, event: React.ChangeEvent<HTMLTextAreaElement>) => void;
     description?: string;
     hasError?: boolean;
-    hasErrorMessage?: string;
+    errorMessage?: string;
+    prefixCls?: string;
 }
 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
     ({
-        className,
         description,
         hasError,
-        hasErrorMessage,
+        errorMessage,
+        prefixCls = "oms",
+        className,
         placeholder,
         required,
         onFocus,
-        isFocus,
         onBlur,
         onChange,
-        ...restInputProps
+        ...rest
     }, ref) => {
         const [focus, setFocus] = React.useState<boolean>(false);
 
         return (
-            <div className={clsx(className, 'oms-textarea_wrapper')}>
-                <div className={clsx({
-                    'oms-textarea': !restInputProps.disabled && !hasError,
-                    'oms-textarea_disabled': restInputProps.disabled,
-                    'oms-textarea_error': hasError
-                })}
+            <div className={clsx(prefixCls + "-textarea_wrapper", className)}>
+                <div
+                    className={clsx({
+                        [`${prefixCls + "-textarea"}`]: !rest.disabled && !hasError,
+                        [`${prefixCls + "-textarea_disabled"}`]: rest.disabled,
+                        [`${prefixCls + "-textarea_error"}`]: hasError
+                    })}
                 >
                     <textarea
                         ref={ref}
-                        onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
+                        onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
                             if (onChange) {
-                                let { value } = event.currentTarget;
-                                onChange(value, event);
+                                let { value } = e.currentTarget;
+                                onChange(value, e);
                             }
                         }}
                         onFocus={(...args) => {
                             setFocus(true);
-                            if (isFocus) {
-                                isFocus(true);
-                            }
                             if (onFocus) {
                                 onFocus(...args);
                             }
@@ -61,19 +58,19 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
                                 onBlur(...args);
                             }
                         }}
-                        {...restInputProps}
+                        {...rest}
                     />
-                    {(placeholder && !focus && !restInputProps.value) && (
-                        <div className="wrapper-placeholder">
+                    {(placeholder && !focus && !rest.value) && (
+                        <div className={prefixCls + "-textarea_wrapper-placeholder"}>
                             <Typography.Text
-                                className="oms-textarea_placeholder"
-                                disabled={restInputProps.disabled}
+                                className={prefixCls + "-textarea_placeholder"}
+                                disabled={rest.disabled}
                             >
                                 {placeholder}
                             </Typography.Text>
                             {required && (
                                 <Typography.Service
-                                    className="oms-textarea_required"
+                                    className={prefixCls + "-textarea_required"}
                                     variant="error"
                                 >
                                     *
@@ -87,9 +84,9 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
                         {description}
                     </Typography.Text>
                 )}
-                {hasErrorMessage && hasError && (
+                {errorMessage && hasError && (
                     <Typography.Service variant="error">
-                        {hasErrorMessage}
+                        {errorMessage}
                     </Typography.Service>
                 )}
             </div>

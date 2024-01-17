@@ -1,5 +1,5 @@
 import React from "react";
-import { Icons } from "..";
+import { Icons } from "../../icons";
 import clsx from "clsx";
 
 import "./style.scss";
@@ -10,6 +10,7 @@ export interface IServiceProps extends TServiceElement {
     variant?: "info" | "warning" | "error" | "success" | "help";
     small?: boolean;
     showIcon?: boolean;
+    prefix?: string;
 }
 
 export const Service: React.FC<IServiceProps> = (
@@ -19,24 +20,23 @@ export const Service: React.FC<IServiceProps> = (
             variant = "info",
             small,
             showIcon,
+            prefix = "oms",
             children,
             ...rest
         } = props;
 
+        const Icon = Icons[`${variant[0].toUpperCase() + variant.substring(1, variant.length + 1)}`];
+
         return (
             <p
                 className={clsx(
-                    variant && "oms-typography_service-" + variant,
-                    small && "oms-typography_small",
+                    variant && prefix + "-typography_service-" + variant,
+                    small && prefix + "-typography_service-small",
                     className
                 )}
                 {...rest}
             >
-                {showIcon && variant === "info" && <Icons.Info />}
-                {showIcon && variant === "warning" && <Icons.Warning />}
-                {showIcon && variant === "error" && <Icons.Error />}
-                {showIcon && variant === "success" && <Icons.Success />}
-                {showIcon && variant === "help" && <Icons.Help />}
+                {showIcon && <Icon />}
                 {children}
             </p>
         );

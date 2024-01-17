@@ -52,20 +52,20 @@ Text.args = {
 
 Anchor.argTypes = {
     small: { control: "boolean" },
-    iconPrefix: {
-        control: "boolean",
-        mapping: {
-            true: <Icons.Open />,
-            false: null,
-        }
-    },
-    iconSuffix: {
-        control: "boolean",
-        mapping: {
-            true: <Icons.Open />,
-            false: null,
-        }
-    },
+    // iconPrefix: {
+    //     control: "boolean",
+    //     mapping: {
+    //         true: <Icons.Open />,
+    //         false: null,
+    //     }
+    // },
+    // iconSuffix: {
+    //     control: "boolean",
+    //     mapping: {
+    //         true: <Icons.Open />,
+    //         false: null,
+    //     }
+    // },
     href: {
         table: {
             disable: true
@@ -82,8 +82,8 @@ Anchor.args = {
     children: "click me",
     href: "https://upload.wikimedia.org/wikipedia/ru/thumb/f/f9/Film_2567_03.jpg/274px-Film_2567_03.jpg",
     target: "_blank",
-    iconPrefix: false,
-    iconSuffix: <Icons.Open />,
+    // iconPrefix: false,
+    // iconSuffix: <Icons.Open />,
     small: false
 };
 
