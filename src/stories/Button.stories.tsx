@@ -1,26 +1,22 @@
 import React from "react";
-import { StoryFn } from "@storybook/react";
-import { Button, IButtonProps, Icons } from "../components";
+import { Meta, StoryObj } from "@storybook/react";
+import { Button, Icons } from "../components";
 
-
-export default {
+const story: Meta<typeof Button> = {
   title: "Components/Button",
   component: Button,
-  tags: ['autodocs'],
-  parameters: {
-    description: 'Overwritten description',
-  },
+  parameters: {},
   argTypes: {
     children: {
       table: {
-        type: { summary: 'string' },
+        type: { summary: "string" },
         defaultValue: { summary: null }
       },
     },
     icon: {
       control: "boolean",
       table: {
-        type: { summary: 'JSX.Element' },
+        type: { summary: "JSX.Element" },
         defaultValue: { summary: null }
       },
       mapping: {
@@ -33,16 +29,24 @@ export default {
     round: {
       control: "boolean",
       table: {
-        type: { summary: 'boolean' },
+        type: { summary: "boolean" },
         defaultValue: { summary: "false" }
       },
     },
     disabled: {
       control: "boolean",
       table: {
-        type: { summary: 'boolean' },
+        type: { summary: "boolean" },
         defaultValue: { summary: "false" }
       },
+    },
+    prefixCls: {
+      control: "string",
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "oms" }
+      },
+      description: "Используется для переопределения префикса класса"
     }
   },
   args: {
@@ -55,16 +59,18 @@ export default {
   },
 };
 
-const Template: StoryFn<IButtonProps> = (args) => <Button {...args} />;
-// export const API = Template.bind({});
-export const withChildren = Template.bind({});
-export const noChildren = Template.bind({});
+export default story;
 
-withChildren.args = {
-  children: "some text"
-}
+type Story = StoryObj<typeof Button>;
 
-noChildren.args = {
-  children: null
-}
-
+export const Playground: Story = {};
+export const Square: Story = {
+  parameters: {
+    controls: {
+      exclude: ["icon", "children"]
+    },
+  },
+  args: {
+    children: null
+  }
+};
