@@ -52,7 +52,8 @@ const story: Meta<typeof Checkbox> = {
         prefixCls: {
             table: {
                 defaultValue: { summary: `"oms"` }
-            }
+            },
+            description: "Используется для переопределения префикса класса"
         }
     },
     args: {

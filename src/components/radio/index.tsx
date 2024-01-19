@@ -7,14 +7,14 @@ import "./style.scss";
 
 export interface IRadioProps extends HTMLProps<HTMLInputElement> {
     align?: "center" | "top";
-    bold?: boolean;
+    labelBold?: boolean;
     prefixCls?: string;
 }
 
 export const Radio: React.FC<IRadioProps> = (props): JSX.Element => {
     const {
         align = "center",
-        bold,
+        labelBold,
         prefixCls = "oms",
         label,
         className,
@@ -33,7 +33,7 @@ export const Radio: React.FC<IRadioProps> = (props): JSX.Element => {
             {label && (
                 <Typography.Text
                     className={clsx(!rest.disabled && prefixCls + "-radio_label")}
-                    bold={bold}
+                    bold={labelBold}
                     disabled={rest.disabled}
                 >
                     {label}
