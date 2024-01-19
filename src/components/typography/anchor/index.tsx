@@ -8,7 +8,7 @@ type TAnchorElement = React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnc
 
 export interface IAnchorProps extends TAnchorElement {
     small?: boolean;
-    prefixClsCls?: string;
+    prefixCls?: string;
 }
 
 export const Anchor: React.FC<IAnchorProps> = forwardRef<HTMLAnchorElement, IAnchorProps>(
@@ -16,7 +16,7 @@ export const Anchor: React.FC<IAnchorProps> = forwardRef<HTMLAnchorElement, IAnc
         const {
             className,
             small,
-            prefixClsCls = "oms",
+            prefixCls = "oms",
             children,
             ...rest
         } = props;
@@ -25,8 +25,8 @@ export const Anchor: React.FC<IAnchorProps> = forwardRef<HTMLAnchorElement, IAnc
             <a
                 ref={ref}
                 className={clsx(
-                    prefixClsCls + "-typography_anchor",
-                    small && prefixClsCls + "-typography_anchor-small",
+                    prefixCls + "-typography_anchor",
+                    small && prefixCls + "-typography_anchor-small",
                     className
                 )}
                 {...rest}

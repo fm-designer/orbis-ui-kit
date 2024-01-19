@@ -11,7 +11,7 @@ export interface IServiceProps extends TServiceElement {
     variant?: "info" | "warning" | "error" | "success" | "help";
     small?: boolean;
     showIcon?: boolean;
-    prefix?: string;
+    prefixCls?: string;
 }
 
 export const Service: React.FC<IServiceProps> = (
@@ -21,7 +21,7 @@ export const Service: React.FC<IServiceProps> = (
             variant = "info",
             small,
             showIcon,
-            prefix = "oms",
+            prefixCls = "oms",
             children,
             ...rest
         } = props;
@@ -31,8 +31,8 @@ export const Service: React.FC<IServiceProps> = (
         return (
             <p
                 className={clsx(
-                    variant && prefix + "-typography_service-" + variant,
-                    small && prefix + "-typography_service-small",
+                    variant && prefixCls + "-typography_service-" + variant,
+                    small && prefixCls + "-typography_service-small",
                     className
                 )}
                 {...rest}

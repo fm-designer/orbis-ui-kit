@@ -4,6 +4,7 @@
     font-size: 2rem;
     font-weight: 700;
     color: $clr-theme-title;
+    word-wrap: break-word;
 
     margin: auto 0;
 }
@@ -12,6 +13,7 @@
     font-size: 1.5rem;
     font-weight: 700;
     color: $clr-theme-title;
+    word-wrap: break-word;
 
     margin: auto 0;
 }
@@ -21,6 +23,7 @@
     font-weight: 700;
     text-transform: uppercase;
     color: $clr-theme-title;
+    word-wrap: break-word;
 
     margin: auto 0;
 }
@@ -31,6 +34,7 @@
     text-transform: uppercase;
     letter-spacing: calc((1rem - 10px) * 0.1);
     color: $clr-gray-1;
+    word-wrap: break-word;
 
     margin: auto 0;
 }
