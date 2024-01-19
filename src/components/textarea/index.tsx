@@ -9,7 +9,7 @@ export interface ITextareaProps
     extends Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, "onChange"> {
     onChange: (value: string, event: React.ChangeEvent<HTMLTextAreaElement>) => void;
     description?: string;
-    hasError?: boolean;
+    error?: boolean;
     errorMessage?: string;
     resize?: boolean;
     prefixCls?: string;
@@ -18,7 +18,7 @@ export interface ITextareaProps
 export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
     ({
         description,
-        hasError,
+        error,
         errorMessage,
         resize,
         prefixCls = "oms",
@@ -37,9 +37,9 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
                 <div className={prefixCls + "-textarea_wrapper"}>
                     <textarea
                         className={clsx({
-                            [`${prefixCls + "-textarea"}`]: !rest.disabled && !hasError,
+                            [`${prefixCls + "-textarea"}`]: !rest.disabled && !error,
                             [`${prefixCls + "-textarea_disabled"}`]: rest.disabled,
-                            [`${prefixCls + "-textarea_error"}`]: hasError
+                            [`${prefixCls + "-textarea_error"}`]: error
                         }, resize && prefixCls + "-textarea_resize")}
                         ref={ref}
                         onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -79,12 +79,12 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
                         </div>
                     )}
                 </div>
-                {description && !hasError && (
+                {description && !error && (
                     <Typography.Text disabled>
                         {description}
                     </Typography.Text>
                 )}
-                {errorMessage && hasError && (
+                {errorMessage && error && (
                     <Typography.Service variant="error">
                         {errorMessage}
                     </Typography.Service>
