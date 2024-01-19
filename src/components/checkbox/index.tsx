@@ -4,10 +4,11 @@ import clsx from "clsx";
 
 import "./style.scss";
 
+
 export interface ICheckboxProps extends HTMLProps<HTMLInputElement> {
     indeterminate?: boolean;
     align?: "center" | "top";
-    bold?: boolean;
+    labelBold?: boolean;
     prefixCls?: string;
 }
 
@@ -15,14 +16,12 @@ export const Checkbox: React.FC<ICheckboxProps> = (props): JSX.Element => {
     const {
         indeterminate,
         align = "center",
-        bold,
+        labelBold,
         prefixCls = "oms",
         label,
         className,
         ...rest
     } = props;
-
-    console.log(label);
 
     return (
         <label className={clsx(prefixCls + "-checkbox_align-" + align, className)}>
@@ -39,7 +38,7 @@ export const Checkbox: React.FC<ICheckboxProps> = (props): JSX.Element => {
             {label && (
                 <Typography.Text
                     className={clsx(!rest.disabled && prefixCls + "-checkbox_label")}
-                    bold={bold}
+                    bold={labelBold}
                     disabled={rest.disabled}
                 >
                     {label}

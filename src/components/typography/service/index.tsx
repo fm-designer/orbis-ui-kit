@@ -4,6 +4,7 @@ import clsx from "clsx";
 
 import "./style.scss";
 
+
 type TServiceElement = React.DetailedHTMLProps<React.HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>;
 
 export interface IServiceProps extends TServiceElement {

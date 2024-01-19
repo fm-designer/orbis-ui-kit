@@ -1,26 +1,87 @@
 import React from "react";
-import { StoryFn } from "@storybook/react";
-import { Checkbox, ICheckboxProps } from "../components";
+import { Meta, StoryObj } from "@storybook/react";
+import { Checkbox } from "../components";
 
 
-export default {
+const story: Meta<typeof Checkbox> = {
     title: "Components/Checkbox",
     component: Checkbox,
+    parameters: {},
+    argTypes: {
+        label: {
+            table: {
+                type: { summary: "string" },
+                defaultValue: { summary: "null" }
+            }
+        },
+        labelBold: {
+            control: "boolean",
+            table: {
+                type: { summary: "boolean" },
+                defaultValue: { summary: "false" }
+            },
+         },
+        checked: { 
+            control: "boolean",
+            table: {
+                type: { summary: "boolean" },
+                defaultValue: { summary: "false" }
+            }
+         },
+        indeterminate: { 
+            control: "boolean",
+            table: {
+                type: { summary: "boolean" },
+                defaultValue: { summary: "false" }
+            }
+         },
+        disabled: { 
+            control: "boolean",
+            table: {
+                type: { summary: "false" },
+                defaultValue: { summary: "false" }
+            }
+         },
+        align: { 
+            control: "select",
+            table: {
+                defaultValue: { summary: `"center"` }
+            },
+            description: "Используется для выравнивания checkbox относительно label"
+        },
+        prefixCls: {
+            table: {
+                defaultValue: { summary: `"oms"` }
+            }
+        }
+    },
+    args: {
+        label: "some text",
+        labelBold: false,
+        checked: false,
+        indeterminate: false,
+        disabled: false,
+        align: "center",
+        prefixCls: "oms",
+        readOnly: true
+    }
 }
 
-const Template: StoryFn<ICheckboxProps> = (args) => <Checkbox {...args} />;
+export default story;
 
-export const Check = Template.bind({});
-export const Indeterminate = Template.bind({});
+type Story = StoryObj<typeof Checkbox>;
 
-Check.args = {
-    checked: true,
-    label: "some text",
-    disabled: false
-}
-
-Indeterminate.args = {
-    // indeterminate: true,
-    label: "some text",
-    disabled: false
-}
+export const Checked: Story = {
+    parameters: {
+        controls: {
+            exclude: [ "indeterminate", "readOnly" ]
+        }
+    }
+};
+export const Indeterminate: Story = {
+    parameters: {
+        controls: {
+            exclude: [ "checked", "readOnly" ]
+        }
+    }
+};

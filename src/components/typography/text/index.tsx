@@ -3,6 +3,7 @@ import clsx from "clsx";
 
 import "./style.scss";
 
+
 type TTextElement = React.DetailedHTMLProps<React.HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>;
 
 export interface ITextProps extends TTextElement {

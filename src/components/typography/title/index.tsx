@@ -3,6 +3,7 @@ import clsx from "clsx";
 
 import "./style.scss";
 
+
 type TTileElement = React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 
 export interface ITitleProps extends TTileElement {

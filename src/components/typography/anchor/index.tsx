@@ -3,6 +3,7 @@ import clsx from "clsx";
 
 import "./style.scss";
 
+
 type TAnchorElement = React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>;
 
 export interface IAnchorProps extends TAnchorElement {

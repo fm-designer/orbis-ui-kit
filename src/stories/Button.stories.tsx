@@ -10,14 +10,14 @@ const story: Meta<typeof Button> = {
     children: {
       table: {
         type: { summary: "string" },
-        defaultValue: { summary: null }
+        defaultValue: { summary: "null" }
       },
     },
     icon: {
       control: "boolean",
       table: {
         type: { summary: "JSX.Element" },
-        defaultValue: { summary: null }
+        defaultValue: { summary: "null" }
       },
       mapping: {
         true: <Icons.ArrowBottom />,
@@ -41,10 +41,9 @@ const story: Meta<typeof Button> = {
       },
     },
     prefixCls: {
-      control: "string",
       table: {
         type: { summary: "string" },
-        defaultValue: { summary: "oms" }
+        defaultValue: { summary: `"oms"` }
       },
       description: "Используется для переопределения префикса класса"
     }
@@ -55,7 +54,8 @@ const story: Meta<typeof Button> = {
     variant: "contained",
     size: "large",
     round: false,
-    disabled: false
+    disabled: false,
+    prefixCls: "oms"
   },
 };
 
@@ -67,12 +67,10 @@ export const Playground: Story = {};
 export const Square: Story = {
   parameters: {
     controls: {
-      exclude: ["icon", "children"]
+      exclude: [ "icon", "children" ]
     },
   },
   args: {
     children: null
   }
 };
-
-console.log('gg');

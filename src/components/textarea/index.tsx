@@ -4,6 +4,7 @@ import clsx from "clsx";
 
 import "./style.scss";
 
+
 export interface ITextareaProps
     extends Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, "onChange"> {
     onChange: (value: string, event: React.ChangeEvent<HTMLTextAreaElement>) => void;
@@ -29,7 +30,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
         onChange,
         ...rest
     }, ref) => {
-        const [focus, setFocus] = React.useState<boolean>(false);
+        const [ focus, setFocus ] = React.useState<boolean>(false);
 
         return (
             <div className={clsx(prefixCls + "-textarea_container", className)}>
