@@ -74,3 +74,5 @@ export const Square: Story = {
     children: null
   }
 };
+
+console.log('gg');
