@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;  
+  flex-shrink: 0;
 
   border: 1px solid transparent;
   border-radius: 2px;
@@ -72,7 +72,7 @@
   @extend %common-styles;
 
   border-color: $clr-gray-1;
-  background-color: $clr-theme-icon;
+  background-color: $clr-theme-background;
 }
 
 .oms-checkbox_checked,
