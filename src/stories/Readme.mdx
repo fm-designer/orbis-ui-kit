@@ -1,0 +1,52 @@
+import { Meta, IconGallery, IconItem } from '@storybook/blocks';
+import { Icons } from "@storybook/components";
+import Logo from 'assets/logo.svg';
+
+<Meta title="Readme" />
+
+
+# ORBIS UI kit (demo)
+
+*ver.0.0.1 (текущая)*
+
+## Панель инструментов
+
+Для управления вариантом темы и цветовой схемой на панели инструментов расположены следующие элементы:
+
+### Переключение темы
+#
+<IconGallery>
+    <IconItem name="Светлая тема">
+        <Icons icon="sun" />
+    </IconItem>
+    <IconItem name="Темная тема">
+        <Icons icon="moon" />
+    </IconItem>
+</IconGallery>
+
+### Выбор цветовой схемы
+#
+<IconGallery>  
+    <IconItem name="Синий">
+        <Icons icon="circle" style={{ color: "blue" }} />
+    </IconItem>
+    <IconItem name="Зеленый">
+        <Icons icon="circle" style={{ color: "green" }} />
+    </IconItem>
+    <IconItem name="Оранжевый">
+        <Icons icon="circle" style={{ color: "orange" }} />
+    </IconItem>
+    <IconItem name="Красный">
+        <Icons icon="circle" style={{ color: "red" }} />
+    </IconItem>
+</IconGallery>
+
+## ver.0.0.1
+
+Были добавлены следующие компоненты:
+
+- **Button**
+- **Checkbox**
+- **Radio**
+- **Textarea**
+- **Typography**
