@@ -2,6 +2,7 @@ import { addons, types } from "@storybook/addons";
 
 import { ToolContextTheme } from "../tools";
 import { ADDON_ID, TOOL_ID } from "../tools/constants";
+import orbisUiTheme from "./orbis-ui-theme";
 
 
 // Register the addon
@@ -13,4 +14,8 @@ addons.register(ADDON_ID, () => {
     match: ({ viewMode }) => !!(viewMode && viewMode.match(/^(story|docs)$/)),
     render: ToolContextTheme,
   });
+});
+
+addons.setConfig({
+  theme: orbisUiTheme,
 });
